@@ -1,0 +1,232 @@
+{
+  "track": "교육 계열",
+  "rows": [
+    {
+      "unit": "국어교육",
+      "university": "강원대(춘천)",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": true, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": "강원대(춘천)(한문)"
+      }
+    },
+    {
+      "unit": "국어교육",
+      "university": "경북대*",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "국어교육",
+      "university": "단국대*",
+      "subjects": {
+        "국어": true, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": true, "일반사회": true, "역사": true, "지리": true, "윤리": true,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "국어교육",
+      "university": "동국대",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": true, "지리": true, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "국어교육",
+      "university": "서울대",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": "서울대(제2외/한문)"
+      }
+    },
+    {
+      "unit": "국어교육",
+      "university": "전남대",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "국어교육",
+      "university": "전북대",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "국어교육",
+      "university": "전주대",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "국어교육",
+      "university": "조선대",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "국어교육",
+      "university": "충남대",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": "충남대(제2외/한문)"
+      }
+    },
+    {
+      "unit": "국어교육",
+      "university": "충북대",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": "충남대(역사/도덕포함)", "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "수학교육",
+      "university": "강원대(춘천)",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": true, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "수학교육",
+      "university": "경북대*",
+      "subjects": {
+        "국어": false, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "수학교육",
+      "university": "고려대",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": true, "기하": true,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "수학교육",
+      "university": "단국대*",
+      "subjects": {
+        "국어": true, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": true, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "수학교육",
+      "university": "동국대",
+      "subjects": {
+        "국어": false, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "수학교육",
+      "university": "부산대",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": true, "미적분Ⅰ": false, "미적분Ⅱ": true, "기하": true,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "수학교육",
+      "university": "서울대",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": false, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": true, "화학": true, "생명과학": true, "지구과학": true, "기타": null
+      }
+    },
+    {
+      "unit": "수학교육",
+      "university": "영남대",
+      "subjects": {
+        "국어": true, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": true, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "수학교육",
+      "university": "전남대",
+      "subjects": {
+        "국어": false, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "수학교육",
+      "university": "전북대",
+      "subjects": {
+        "국어": false, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "수학교육",
+      "university": "전주대",
+      "subjects": {
+        "국어": false, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "수학교육",
+      "university": "조선대",
+      "subjects": {
+        "국어": false, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "수학교육",
+      "university": "충남대",
+      "subjects": {
+        "국어": false, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": true, "화학": true, "생명과학": true, "지구과학": true, "기타": null
+      }
+    },
+    {
+      "unit": "수학교육",
+      "university": "충북대",
+      "subjects": {
+        "국어": false, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": true, "화학": true, "생명과학": true, "지구과학": true, "기타": null
+      }
+    }
+  ],
+  "_source_page": 357,
+  "_page_file": "p357"
+}

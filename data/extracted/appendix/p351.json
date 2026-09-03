@@ -1,0 +1,249 @@
+{
+  "track": "사회 계열",
+  "rows": [
+    {
+      "unit": "심리",
+      "university": "가톨릭대",
+      "subjects": {
+        "국어": false,
+        "대수": false,
+        "확률과 통계": true,
+        "미적분Ⅰ": false,
+        "미적분Ⅱ": false,
+        "기하": false,
+        "영어": false,
+        "일반사회": false,
+        "역사": false,
+        "지리": false,
+        "윤리": false,
+        "물리학": false,
+        "화학": false,
+        "생명과학": false,
+        "지구과학": false,
+        "기타": null
+      }
+    },
+    {
+      "unit": "심리",
+      "university": "강원대(춘천)",
+      "subjects": {
+        "국어": true,
+        "대수": false,
+        "확률과 통계": true,
+        "미적분Ⅰ": false,
+        "미적분Ⅱ": false,
+        "기하": false,
+        "영어": true,
+        "일반사회": true,
+        "역사": false,
+        "지리": false,
+        "윤리": false,
+        "물리학": false,
+        "화학": false,
+        "생명과학": false,
+        "지구과학": false,
+        "기타": null
+      }
+    },
+    {
+      "unit": "심리",
+      "university": "광운대",
+      "subjects": {
+        "국어": true,
+        "대수": true,
+        "확률과 통계": true,
+        "미적분Ⅰ": true,
+        "미적분Ⅱ": false,
+        "기하": false,
+        "영어": true,
+        "일반사회": true,
+        "역사": false,
+        "지리": false,
+        "윤리": true,
+        "물리학": false,
+        "화학": false,
+        "생명과학": false,
+        "지구과학": false,
+        "기타": null
+      }
+    },
+    {
+      "unit": "심리",
+      "university": "서울대",
+      "subjects": {
+        "국어": false,
+        "대수": false,
+        "확률과 통계": false,
+        "미적분Ⅰ": false,
+        "미적분Ⅱ": false,
+        "기하": false,
+        "영어": false,
+        "일반사회": false,
+        "역사": false,
+        "지리": false,
+        "윤리": false,
+        "물리학": false,
+        "화학": false,
+        "생명과학": false,
+        "지구과학": false,
+        "기타": "제2외/한문"
+      }
+    },
+    {
+      "unit": "심리",
+      "university": "아주대*",
+      "subjects": {
+        "국어": false,
+        "대수": true,
+        "확률과 통계": true,
+        "미적분Ⅰ": true,
+        "미적분Ⅱ": false,
+        "기하": false,
+        "영어": false,
+        "일반사회": true,
+        "역사": true,
+        "지리": true,
+        "윤리": true,
+        "물리학": false,
+        "화학": false,
+        "생명과학": false,
+        "지구과학": false,
+        "기타": null
+      }
+    },
+    {
+      "unit": "심리",
+      "university": "영남대",
+      "subjects": {
+        "국어": true,
+        "대수": true,
+        "확률과 통계": true,
+        "미적분Ⅰ": true,
+        "미적분Ⅱ": false,
+        "기하": false,
+        "영어": true,
+        "일반사회": true,
+        "역사": true,
+        "지리": true,
+        "윤리": true,
+        "물리학": true,
+        "화학": true,
+        "생명과학": true,
+        "지구과학": true,
+        "기타": null
+      }
+    },
+    {
+      "unit": "심리",
+      "university": "전남대",
+      "subjects": {
+        "국어": false,
+        "대수": false,
+        "확률과 통계": false,
+        "미적분Ⅰ": false,
+        "미적분Ⅱ": false,
+        "기하": false,
+        "영어": true,
+        "일반사회": true,
+        "역사": true,
+        "지리": true,
+        "윤리": true,
+        "물리학": false,
+        "화학": false,
+        "생명과학": false,
+        "지구과학": false,
+        "기타": null
+      }
+    },
+    {
+      "unit": "심리",
+      "university": "전주대",
+      "subjects": {
+        "국어": true,
+        "대수": false,
+        "확률과 통계": false,
+        "미적분Ⅰ": false,
+        "미적분Ⅱ": false,
+        "기하": false,
+        "영어": false,
+        "일반사회": false,
+        "역사": false,
+        "지리": false,
+        "윤리": false,
+        "물리학": false,
+        "화학": false,
+        "생명과학": false,
+        "지구과학": false,
+        "기타": null
+      }
+    },
+    {
+      "unit": "심리",
+      "university": "조선대",
+      "subjects": {
+        "국어": true,
+        "대수": false,
+        "확률과 통계": false,
+        "미적분Ⅰ": false,
+        "미적분Ⅱ": false,
+        "기하": false,
+        "영어": true,
+        "일반사회": false,
+        "역사": false,
+        "지리": false,
+        "윤리": false,
+        "물리학": false,
+        "화학": false,
+        "생명과학": false,
+        "지구과학": false,
+        "기타": null
+      }
+    },
+    {
+      "unit": "심리",
+      "university": "충남대",
+      "subjects": {
+        "국어": true,
+        "대수": false,
+        "확률과 통계": true,
+        "미적분Ⅰ": false,
+        "미적분Ⅱ": false,
+        "기하": false,
+        "영어": true,
+        "일반사회": "(역사/도덕 포함)",
+        "역사": "(역사/도덕 포함)",
+        "지리": "(역사/도덕 포함)",
+        "윤리": "(역사/도덕 포함)",
+        "물리학": false,
+        "화학": false,
+        "생명과학": false,
+        "지구과학": false,
+        "기타": null
+      }
+    },
+    {
+      "unit": "심리",
+      "university": "충북대",
+      "subjects": {
+        "국어": false,
+        "대수": true,
+        "확률과 통계": true,
+        "미적분Ⅰ": true,
+        "미적분Ⅱ": true,
+        "기하": true,
+        "영어": true,
+        "일반사회": false,
+        "역사": false,
+        "지리": false,
+        "윤리": false,
+        "물리학": false,
+        "화학": false,
+        "생명과학": false,
+        "지구과학": false,
+        "기타": null
+      }
+    }
+  ],
+  "_source_page": 351,
+  "_page_file": "p351"
+}

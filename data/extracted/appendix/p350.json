@@ -1,0 +1,214 @@
+{
+  "track": "사회 계열",
+  "rows": [
+    {
+      "unit": "경영",
+      "university": "강원대(춘천)",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": false, "기하": false,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "광운대",
+      "subjects": {
+        "국어": true, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": false, "기하": false,
+        "영어": true, "일반사회": true, "역사": false, "지리": true, "윤리": true,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": "광운대(제2외)"
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "국립한밭대",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": true,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "단국대*",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": true, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": true, "일반사회": true, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "단국대(천안)*",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": true, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": true,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "동국대",
+      "subjects": {
+        "국어": false, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": false,
+        "영어": true, "일반사회": true, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "동아대",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": true, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "부산대",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "아주대*",
+      "subjects": {
+        "국어": false, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "영남대",
+      "subjects": {
+        "국어": true, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": false, "기하": false,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": "영남대"
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "서울대",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": "서울대(제2외/한문)"
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "서울과기대",
+      "subjects": {
+        "국어": false, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "서울시립대",
+      "subjects": {
+        "국어": false, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "숭실대",
+      "subjects": {
+        "국어": true, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "전남대",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": true, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "전주대",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "조선대",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": true, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "충남대",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": true, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "충북대",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "한국기술교육대",
+      "subjects": {
+        "국어": true, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "한국항공대",
+      "subjects": {
+        "국어": false, "대수": true, "확률과 통계": true, "미적분Ⅰ": true, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "한양대(ERICA)",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": true, "기하": true,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "경영",
+      "university": "협성대*",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": "협성대*"
+      }
+    }
+  ],
+  "_source_page": 350,
+  "_page_file": "p350"
+}

@@ -1,0 +1,97 @@
+{
+  "track": "예체능 계열",
+  "rows": [
+    {
+      "unit": "시각디자인",
+      "university": "강원대(삼척)",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": "강원대(삼척)(미술,미술창작,미술감상과비평)"
+      }
+    },
+    {
+      "unit": "시각디자인",
+      "university": "국립한밭대",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "시각디자인",
+      "university": "동아대",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "시각디자인",
+      "university": "조선대",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": true,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": "조선대(산업디자인)"
+      }
+    },
+    {
+      "unit": "시각디자인",
+      "university": "전주대",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": "전주대(미술,기술가정,교양)"
+      }
+    },
+    {
+      "unit": "음악",
+      "university": "동아대",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "체육",
+      "university": "동아대",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": true,
+        "물리학": false, "화학": false, "생명과학": true, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "체육",
+      "university": "동양대",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": true, "미적분Ⅱ": true, "기하": true,
+        "영어": true, "일반사회": false, "역사": false, "지리": false, "윤리": true,
+        "물리학": false, "화학": false, "생명과학": true, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "체육",
+      "university": "조선대",
+      "subjects": {
+        "국어": true, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": null
+      }
+    },
+    {
+      "unit": "체육",
+      "university": "한체대",
+      "subjects": {
+        "국어": false, "대수": false, "확률과 통계": false, "미적분Ⅰ": false, "미적분Ⅱ": false, "기하": false,
+        "영어": false, "일반사회": false, "역사": false, "지리": false, "윤리": false,
+        "물리학": false, "화학": false, "생명과학": false, "지구과학": false, "기타": "한체대(체육스포츠과학,스포츠생활)"
+      }
+    }
+  ],
+  "_source_page": 358,
+  "_page_file": "p358"
+}
