@@ -1,0 +1,16 @@
+# 01_split.py 로 PDF에서 1분이면 재생성되는 중간 산출물 (약 84MB)
+data/images/
+data/pages/
+
+# 배치 작업 상태
+data/extracted/*.batch_id
+data/extracted/**/*.raw.txt
+
+# 파이썬
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 환경
+.env
