@@ -1,6 +1,6 @@
 /**
  * @file validator.js - 브라우저 클라이언트 사이드 결정론적 교육과정 검증기
- * engine/validator.py와 100% 동일한 규칙을 브라우저에서 즉각 판정합니다.
+ * 대상 학년별 부분 선택 검증(targetGrade: 2 또는 3) 및 전체 검증을 모두 지원합니다.
  */
 
 const SEMESTERS = ["1-1", "1-2", "2-1", "2-2", "3-1", "3-2"];
@@ -52,15 +52,40 @@ class Report {
   }
 }
 
-export function validatePlan(picks, school, appendixData = null, targetUnit = null, targetUniversity = null) {
+/**
+ * @param {Object} picks - 선택군ID: [선택과목명...]
+ * @param {Object} school - 학교 프로필 json
+ * @param {Object} appendixData - 대학 권장과목 데이터
+ * @param {string} targetUnit - 지망 학과/학부
+ * @param {string} targetUniversity - 지망 대학
+ * @param {number|null} targetGrade - 대상 학년 (2: 1학년 학생이 2학년 과목 선택, 3: 2학년 학생이 3학년 과목 선택, null: 전학년)
+ * @param {Array<string>} completedElectives - (3학년 선택 시) 2학년 때 이미 이수한 선택과목 목록
+ */
+export function validatePlan(
+  picks,
+  school,
+  appendixData = null,
+  targetUnit = null,
+  targetUniversity = null,
+  targetGrade = null,
+  completedElectives = []
+) {
   const r = new Report();
   const off = {};
   for (const o of school.offerings) {
     off[o.name] = o;
   }
 
+  // 대상 그룹 필터링
+  let activeGroups = school.choice_groups || [];
+  if (targetGrade === 2) {
+    activeGroups = activeGroups.filter(g => g.semester.startsWith("2-"));
+  } else if (targetGrade === 3) {
+    activeGroups = activeGroups.filter(g => g.semester.startsWith("3-"));
+  }
+
   const groups = {};
-  for (const g of (school.choice_groups || [])) {
+  for (const g of activeGroups) {
     groups[g.id] = g;
   }
 
@@ -91,18 +116,28 @@ export function validatePlan(picks, school, appendixData = null, targetUnit = nu
     chosen.push(...valid);
   }
 
-  for (const gid of Object.keys(picks)) {
-    if (!groups[gid]) {
-      r.err("없는선택군", `'${gid}'는 이 학교에 없는 선택군입니다.`, { group: gid });
+  // 2. 이수 집계
+  const taken = {};
+  // 1학년 학교지정과목은 항상 포함
+  for (const o of school.offerings) {
+    if (o.track === "학교지정") {
+      if (targetGrade === 2 && !o.semesters.some(s => s.startsWith("1-") || s.startsWith("2-"))) {
+        continue; // 2학년 선택 시 3학년 지정과목은 제외
+      }
+      taken[o.name] = o;
     }
   }
 
-  // 2. 학점 집계
-  const taken = {};
-  for (const o of school.offerings) {
-    if (o.track === "학교지정" || chosen.includes(o.name)) {
-      taken[o.name] = o;
+  // 3학년 선택 모드인 경우: 2학년 기이수 과목 추가
+  if (targetGrade === 3 && completedElectives && completedElectives.length > 0) {
+    for (const name of completedElectives) {
+      if (off[name]) taken[name] = off[name];
     }
+  }
+
+  // 이번에 선택한 과목 추가
+  for (const name of chosen) {
+    if (off[name]) taken[name] = off[name];
   }
 
   const ccaMap = (school.totals && school.totals.cca_by_semester) || DEFAULT_CCA;
@@ -135,8 +170,15 @@ export function validatePlan(picks, school, appendixData = null, targetUnit = nu
     semSummary[s] = bySem[s] + (ccaMap[s] || DEFAULT_CCA[s] || 0);
   }
 
+  // 선택한 학점만 계산
+  let currentChosenCredits = 0;
+  for (const name of chosen) {
+    if (off[name]) currentChosenCredits += off[name].credits;
+  }
+
   r.summary = {
     과목수: Object.keys(taken).length,
+    선택과목학점: currentChosenCredits,
     교과학점: subjectTotal,
     창체학점: ccaTotal,
     총이수학점: subjectTotal + ccaTotal,
@@ -146,105 +188,72 @@ export function validatePlan(picks, school, appendixData = null, targetUnit = nu
     구분별: byTrack
   };
 
-  // 3. 총량 및 졸업 요건
+  // 3. 학년별 학점 검증
   const t = school.totals || {};
-  if (t.subject_credits && subjectTotal !== t.subject_credits) {
-    r.err("교과학점", `교과 이수 학점 ${subjectTotal} - ${t.subject_credits}학점이어야 합니다.`);
-  }
-  const total = subjectTotal + ccaTotal;
-  if (t.graduation_credits && total !== t.graduation_credits) {
-    r.err("졸업학점", `총 이수 학점 ${total} - 졸업 요건은 ${t.graduation_credits}학점입니다.`);
-  }
-  if (t.credits_per_semester) {
-    for (const s of SEMESTERS) {
-      const got = bySem[s] + (ccaMap[s] || DEFAULT_CCA[s] || 0);
-      if (got !== t.credits_per_semester) {
-        r.err("학기학점", `${s} 학기 ${got}학점 - ${t.credits_per_semester}학점이어야 합니다.`, { semester: s });
-      }
+  if (targetGrade === 2) {
+    // 2학년 선택과목 합계 검증 (금옥여고: 36학점)
+    const requiredGrade2Electives = (t.elective_credits && t.elective_credits.grade2) || 36;
+    if (currentChosenCredits !== requiredGrade2Electives) {
+      const verb = currentChosenCredits < requiredGrade2Electives ? "부족" : "초과";
+      r.err(
+        "2학년선택학점",
+        `2학년 선택과목은 총 ${requiredGrade2Electives}학점이어야 합니다. 현재 ${currentChosenCredits}학점으로 ${Math.abs(requiredGrade2Electives - currentChosenCredits)}학점 ${verb}합니다.`
+      );
+    }
+  } else if (targetGrade === 3) {
+    // 3학년 선택과목 합계 검증 (금옥여고: 40학점)
+    const requiredGrade3Electives = (t.elective_credits && t.elective_credits.grade3) || 40;
+    if (currentChosenCredits !== requiredGrade3Electives) {
+      const verb = currentChosenCredits < requiredGrade3Electives ? "부족" : "초과";
+      r.err(
+        "3학년선택학점",
+        `3학년 선택과목은 총 ${requiredGrade3Electives}학점이어야 합니다. 현재 ${currentChosenCredits}학점으로 ${Math.abs(requiredGrade3Electives - currentChosenCredits)}학점 ${verb}합니다.`
+      );
+    }
+  } else {
+    // 전학년 모드
+    if (t.subject_credits && subjectTotal !== t.subject_credits) {
+      r.err("교과학점", `교과 이수 학점 ${subjectTotal} - ${t.subject_credits}학점이어야 합니다.`);
+    }
+    const total = subjectTotal + ccaTotal;
+    if (t.graduation_credits && total !== t.graduation_credits) {
+      r.err("졸업학점", `총 이수 학점 ${total} - 졸업 요건은 ${t.graduation_credits}학점입니다.`);
     }
   }
 
-  // 4. 교과군 필수 이수
-  const alias = { 한국사: ["한국사1", "한국사2"] };
-  for (const [g, need] of Object.entries(school.required_by_group || {})) {
-    let got = 0;
-    if (alias[g]) {
-      for (const n of alias[g]) {
-        if (taken[n]) got += taken[n].credits;
-      }
-    } else if (g === "사회") {
-      for (const o of Object.values(taken)) {
-        if (o.group.startsWith("사회") && !(alias["한국사"] || []).includes(o.name)) {
-          got += o.credits;
-        }
-      }
-    } else {
-      for (const [grp, credits] of Object.entries(byGroup)) {
-        if (grp === g || grp.startsWith(`${g}(`) || grp.startsWith(`${g}/`)) {
-          got += credits;
-        }
-      }
-    }
-    if (got < need.required) {
-      r.err("필수이수", `${g} 교과(군) ${got}학점 - 필수 이수 ${need.required}학점에 미달합니다.`, {
-        group: g,
-        got,
-        required: need.required
-      });
+  // 4. 국수영 선택 한도 검증 (2·3학년 통틀어 25학점 이하)
+  const korMathEngGroups = ["국어", "수학", "영어"];
+  const matchesKME = grp => korMathEngGroups.some(tg => grp === tg || grp.startsWith(`${tg}(`) || grp.startsWith(`${tg}/`));
+  let kmeElectiveCredits = 0;
+  for (const o of Object.values(taken)) {
+    if (matchesKME(o.group) && o.track !== "학교지정") {
+      kmeElectiveCredits += o.credits;
     }
   }
 
-  // 5. 학교 고유 규칙
-  for (const rule of (school.rules || [])) {
-    const gs = rule.groups || [];
-    const matchesGroup = grp => {
-      for (const tg of gs) {
-        if (grp === tg || grp.startsWith(`${tg}(`) || grp.startsWith(`${tg}/`)) return true;
-      }
-      return false;
-    };
-
-    if (rule.type === "max_credits") {
-      let got = 0;
-      if (rule.scope) {
-        for (const o of Object.values(taken)) {
-          if (matchesGroup(o.group) && o.track !== "학교지정") got += o.credits;
-        }
-      } else {
-        for (const [grp, credits] of Object.entries(byGroup)) {
-          if (matchesGroup(grp)) got += credits;
-        }
-      }
-      if (got > rule.limit) {
-        r.err(rule.id, `${rule.text} 현재 ${got}학점.`, { got, limit: rule.limit });
-      }
-    } else if (rule.type === "min_credits") {
-      let got = 0;
-      for (const [grp, credits] of Object.entries(byGroup)) {
-        if (matchesGroup(grp)) got += credits;
-      }
-      if (got < rule.limit) {
-        r.err(rule.id, `${rule.text} 현재 ${got}학점.`, { got, limit: rule.limit });
-      }
-    } else if (rule.type === "advisory") {
-      r.warn(rule.id, rule.text);
-    }
+  if (targetGrade === 2 && kmeElectiveCredits > 25) {
+    r.err("국수영-선택-총량", `2학년 국수영 선택과목은 25학점을 초과할 수 없습니다. 현재 ${kmeElectiveCredits}학점.`);
+  } else if (targetGrade === 3 && kmeElectiveCredits > 25) {
+    r.err("국수영-선택-총량", `2, 3학년 누적 국수영 선택과목은 25학점 이하여야 합니다. 현재(2학년 기이수 포함) ${kmeElectiveCredits}학점.`);
   }
 
-  // 6. 위계 검증
+  // 5. 위계 검증
   const order = {};
   SEMESTERS.forEach((s, idx) => { order[s] = idx; });
 
   for (const [n, o] of Object.entries(taken)) {
+    // 이번 학년에 듣는 과목들에 대해 위계 검사
+    if (!chosen.includes(n)) continue;
+
     for (const need of (PREREQ[n] || [])) {
       if (!taken[need]) {
         if (off[need]) {
-          r.err("위계", `${n}을(를) 들으려면 ${need}을(를) 먼저 이수해야 합니다.`, {
+          r.err("위계", `${n}을(를) 들으려면 선수 과목 '${need}'을(를) 먼저 이수해야 합니다.`, {
             subject: n,
             prerequisite: need
           });
         } else {
-          r.warn("위계", `${n}의 선수 과목 ${need}이(가) 이 학교에 개설되지 않습니다.`, {
+          r.warn("위계", `${n}의 선수 과목 '${need}'이(가) 학교에 개설되지 않습니다.`, {
             subject: n,
             prerequisite: need
           });
@@ -255,15 +264,15 @@ export function validatePlan(picks, school, appendixData = null, targetUnit = nu
       const b = Math.min(...o.semesters.map(s => order[s]));
       if (a > b) {
         r.err(
-          "배당표위계",
-          `배당표 확인 필요 - 선수 과목 ${need}(${taken[need].semesters[0]})이(가) ${n}(${o.semesters[0]})보다 뒤에 편성돼 있습니다.`,
+          "위계역전",
+          `선수 과목 '${need}'(${taken[need].semesters[0]})이(가) 후속 과목 '${n}'(${o.semesters[0]})보다 뒤 학기에 놓여 있습니다.`,
           { subject: n, prerequisite: need }
         );
       }
     }
   }
 
-  // 7. 대학 권장과목 체크
+  // 6. 대학 권장과목 체크
   if (appendixData && targetUnit) {
     const { requirements = [], domainMap = {} } = appendixData;
     const cols = domainMap.columns || {};
@@ -283,16 +292,10 @@ export function validatePlan(picks, school, appendixData = null, targetUnit = nu
             const needStr = (colDef.core && colDef.core.length > 0) ? colDef.core.join(", ") : colName;
             r.rec(
               "대학권장과목",
-              `[${entry.university} ${entry.unit}] 2028 대입 반영(권장) '${colName}' 영역 과목(${needStr})이 이수 계획에 없습니다.`,
+              `[${entry.university} ${entry.unit}] 2028 대입 반영(권장) '${colName}' 영역 과목(${needStr})이 아직 이수 계획에 없습니다.`,
               { university: entry.university, unit: entry.unit, column: colName, suggested: allowed }
             );
           }
-        } else if (typeof val === "string" && val.trim()) {
-          r.rec(
-            "대학특이사항",
-            `[${entry.university} ${entry.unit}] 특이 권장사항: ${val}`,
-            { university: entry.university, unit: entry.unit, detail: val }
-          );
         }
       }
     }
