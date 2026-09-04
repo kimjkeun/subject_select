@@ -11,154 +11,183 @@
     body { font-family: 'Pretendard', sans-serif; }
     .scrollbar-thin::-webkit-scrollbar { width: 5px; height: 5px; }
     .scrollbar-thin::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 4px; }
+    .scrollbar-thin::-webkit-scrollbar-track { background-color: #f1f5f9; }
   </style>
 </head>
-<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col">
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col antialiased">
 
-  <!-- 헤더 -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <span class="text-2xl">🐡</span>
+  <!-- 메인 상단 헤더 & 주 네비게이션 -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-3">
+      
+      <!-- 로고 및 학교 정보 -->
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white text-lg shadow-sm">
+          🐡
+        </div>
         <div>
-          <h1 class="text-base md:text-lg font-bold text-slate-900 leading-tight">고교학점제 과목 선택 도우미</h1>
-          <p class="text-xs text-slate-500">금옥여자고등학교 (2026학년도 입학생 기준)</p>
+          <div class="flex items-center gap-2">
+            <h1 class="text-sm md:text-base font-extrabold text-slate-900 tracking-tight">과목 선택 도우미</h1>
+            <span class="text-[10px] bg-indigo-50 text-indigo-700 border border-indigo-200/80 px-1.5 py-0.5 rounded font-bold">2022 개정</span>
+          </div>
+          <p class="text-[11px] text-slate-500">금옥여자고등학교 (2026학년도 입학생 기준)</p>
         </div>
       </div>
 
-      <!-- 학년 선택 스위처 (1학년 학생 vs 2학년 학생) -->
-      <div class="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200">
-        <button id="mode-grade1" class="grade-mode-btn px-4 py-1.5 rounded-lg text-xs md:text-sm font-bold transition bg-indigo-600 text-white shadow-sm" data-grade="1">
-          현재 1학년 (2학년 과목 선택)
+      <!-- 상단 메인 탭 (1. 과목 선택 2. 목표 대학 & 권장과목 3. 안내서 과목사전) -->
+      <nav class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200/80 text-xs">
+        <button id="nav-tab-select" class="main-nav-btn px-3.5 py-1.5 rounded-lg font-bold transition bg-white text-indigo-600 shadow-xs flex items-center gap-1.5" data-tab="select">
+          <i class="fa-solid fa-list-check"></i> <span>과목 선택</span>
         </button>
-        <button id="mode-grade2" class="grade-mode-btn px-4 py-1.5 rounded-lg text-xs md:text-sm font-bold transition text-slate-600 hover:text-slate-900" data-grade="2">
-          현재 2학년 (3학년 과목 선택)
+        <button id="nav-tab-target" class="main-nav-btn px-3.5 py-1.5 rounded-lg font-bold transition text-slate-600 hover:text-slate-900 flex items-center gap-1.5" data-tab="target">
+          <i class="fa-solid fa-graduation-cap"></i> <span>목표 대학 & 권장과목</span>
+          <span id="target-summary-chip" class="text-[10px] bg-slate-200 text-slate-700 px-1.5 py-0.2 rounded font-normal">서울대 기계공학</span>
         </button>
-      </div>
+        <button id="nav-tab-handbook" class="main-nav-btn px-3.5 py-1.5 rounded-lg font-bold transition text-slate-600 hover:text-slate-900 flex items-center gap-1.5" data-tab="handbook">
+          <i class="fa-solid fa-book-bookmark"></i> <span>과목 사전</span>
+        </button>
+      </nav>
+
     </div>
   </header>
 
-  <!-- 메인 컨테이너 -->
-  <main class="max-w-6xl mx-auto w-full px-4 py-6 flex-1 flex flex-col gap-6">
+  <!-- ========================================================================= -->
+  <!-- TAB 1: 과목 선택 화면 (메인 작업 공간) -->
+  <!-- ========================================================================= -->
+  <main id="view-select" class="max-w-6xl mx-auto w-full px-4 py-5 flex-1 flex flex-col gap-5">
 
-    <!-- 상단: 진로 목표 & 선택 상태 카드 -->
-    <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-      <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
-        <span class="text-xs font-bold text-slate-500 flex items-center gap-1.5">
-          <i class="fa-solid fa-bullseye text-indigo-500"></i> 희망 진로/목표:
-        </span>
-        <div class="flex items-center gap-2">
-          <input id="target-unit" type="text" value="기계공학" placeholder="희망 전공 (예: 기계공학, 경영)"
-                 class="border border-slate-300 rounded-lg px-3 py-1.5 text-xs font-semibold w-40 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
-          <input id="target-uni" type="text" value="서울대" placeholder="목표 대학 (예: 서울대)"
-                 class="border border-slate-300 rounded-lg px-3 py-1.5 text-xs font-semibold w-32 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
-          <button id="btn-apply-target" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs px-3 py-1.5 rounded-lg font-medium transition">
-            적용
+    <!-- 서브 컨트롤 바: 학년 모드 스위처 + 선택 상태 게이지 -->
+    <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
+      
+      <!-- 학년 선택 스위처 (1학년 학생 vs 2학년 학생) -->
+      <div class="flex items-center gap-3 w-full md:w-auto">
+        <span class="text-xs font-bold text-slate-400">내 현재 학년:</span>
+        <div class="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200/80">
+          <button id="mode-grade1" class="grade-mode-btn px-3.5 py-1.5 rounded-lg text-xs font-extrabold transition bg-indigo-600 text-white shadow-xs" data-grade="1">
+            현재 1학년 (2학년 과목 선택)
+          </button>
+          <button id="mode-grade2" class="grade-mode-btn px-3.5 py-1.5 rounded-lg text-xs font-extrabold transition text-slate-600 hover:text-slate-900" data-grade="2">
+            현재 2학년 (3학년 과목 선택)
           </button>
         </div>
       </div>
 
-      <!-- 선택 학점 게이지 및 상태 -->
+      <!-- 선택 진행 상황 요약 -->
       <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end border-t md:border-t-0 pt-3 md:pt-0 border-slate-100">
         <div class="text-right">
-          <div class="text-[11px] text-slate-400 font-medium" id="target-credit-label">2학년 선택 과목 학점</div>
-          <div class="text-lg font-black text-slate-900" id="stat-chosen-credits">0 / 36학점</div>
+          <div class="text-[10px] text-slate-400 font-medium" id="target-credit-label">2학년 선택 과목 학점</div>
+          <div class="text-base font-black text-slate-900" id="stat-chosen-credits">0 / 36학점</div>
         </div>
-        <div id="status-pill" class="px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 bg-amber-100 text-amber-800">
+        <div id="status-pill" class="px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 bg-amber-100 text-amber-800">
           <i class="fa-solid fa-clock"></i> <span>선택 중</span>
         </div>
-        <button id="btn-quick-sample" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg font-medium border border-slate-200 transition">
-          추천 채우기
+        <button id="btn-quick-sample" class="text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-3 py-1.5 rounded-lg font-bold border border-indigo-200 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> <span>추천 과목 자동 채우기</span>
         </button>
       </div>
+
     </div>
 
-    <!-- 2학년 학생 전용: 2학년 기이수 과목 빠른 체크 영역 (접이식) -->
-    <div id="completed-electives-card" class="bg-indigo-50/70 border border-indigo-100 rounded-2xl p-4 hidden">
+    <!-- 2학년 학생 전용: 2학년 때 이미 들은 과목 체크 (선수과목 위계 판정용) -->
+    <div id="completed-electives-card" class="bg-indigo-50/60 border border-indigo-100/90 rounded-2xl p-4 hidden">
       <div class="flex items-center justify-between cursor-pointer" id="completed-toggle-btn">
-        <div class="flex items-center gap-2">
-          <div class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs">
+        <div class="flex items-center gap-2.5">
+          <div class="w-5 h-5 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[10px]">
             <i class="fa-solid fa-check"></i>
           </div>
-          <span class="text-xs md:text-sm font-bold text-indigo-950">2학년 때 이수한 선택과목 체크 (위계 검증용)</span>
-          <span id="completed-count-badge" class="text-xs bg-indigo-200 text-indigo-800 px-2 py-0.5 rounded-full font-bold">0개 선택됨</span>
+          <div>
+            <span class="text-xs font-bold text-indigo-950">내가 2학년 때 이수한 선택과목 체크</span>
+            <span class="text-[11px] text-indigo-600 ml-1.5">(3학년 선수과목 위계 검증에 활용됩니다)</span>
+          </div>
+          <span id="completed-count-badge" class="text-[10px] bg-indigo-200 text-indigo-800 px-2 py-0.5 rounded-full font-bold ml-1">0개 완료</span>
         </div>
-        <span class="text-xs text-indigo-600 font-medium"><i class="fa-solid fa-chevron-down" id="completed-arrow"></i></span>
+        <span class="text-xs text-indigo-500 font-medium"><i class="fa-solid fa-chevron-down" id="completed-arrow"></i></span>
       </div>
       
-      <!-- 2학년 선택과목 체크박스 리스트 -->
-      <div id="completed-list-container" class="mt-3 pt-3 border-t border-indigo-100 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-xs">
+      <!-- 2학년 선택과목 체크박스 리스트 (접이식) -->
+      <div id="completed-list-container" class="mt-3 pt-3 border-t border-indigo-100/80 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-xs">
         <!-- 동적으로 주입됩니다 -->
       </div>
     </div>
 
-    <!-- 2개 열 레이아웃: 좌측 과목 선택군, 우측 검증 & 맞춤 가이드 -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+    <!-- 2개 컬럼 레이아웃: 좌측 카테고리별 과목 선택, 우측 검증 & 상세 정보 -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
 
       <!-- 좌측 7/8열: 이번 학년 선택 슬롯 -->
-      <div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-6">
-        
+      <div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-4">
+
         <!-- 학기 탭 (1학기 vs 2학기) -->
-        <div class="bg-white rounded-xl p-1.5 border border-slate-200 flex gap-2">
-          <button id="sem-tab-1" class="sem-btn flex-1 py-2 rounded-lg font-bold text-xs md:text-sm bg-indigo-600 text-white transition shadow-sm" data-sem-idx="0">
-            1학기 선택 과목
+        <div class="bg-white rounded-xl p-1 border border-slate-200 flex gap-1.5">
+          <button id="sem-tab-1" class="sem-btn flex-1 py-2 rounded-lg font-bold text-xs md:text-sm bg-indigo-600 text-white transition shadow-xs flex items-center justify-center gap-1.5" data-sem-idx="0">
+            <i class="fa-regular fa-calendar-check"></i> <span>2학년 1학기 (2-1)</span>
           </button>
-          <button id="sem-tab-2" class="sem-btn flex-1 py-2 rounded-lg font-bold text-xs md:text-sm text-slate-600 hover:bg-slate-100 transition" data-sem-idx="1">
-            2학기 선택 과목
+          <button id="sem-tab-2" class="sem-btn flex-1 py-2 rounded-lg font-bold text-xs md:text-sm text-slate-600 hover:bg-slate-100 transition flex items-center justify-center gap-1.5" data-sem-idx="1">
+            <i class="fa-regular fa-calendar"></i> <span>2학년 2학기 (2-2)</span>
           </button>
         </div>
 
-        <!-- 선택군 렌더링 컨테이너 -->
-        <div id="choice-groups-container" class="flex flex-col gap-5">
-          <!-- 자바스크립트가 여기에 렌더링합니다 -->
+        <!-- 학교 지정 과목 상단 바 -->
+        <div id="designated-banner" class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs flex items-center justify-between text-slate-600">
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-slate-900 flex items-center gap-1"><i class="fa-solid fa-lock text-slate-400"></i> 학교 지정:</span>
+            <span id="designated-list" class="text-slate-600">공통국어, 공통수학...</span>
+          </div>
+          <span id="designated-credits" class="text-[10px] text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">자동 배정</span>
+        </div>
+
+        <!-- 선택군 렌더링 컨테이너 (과목군별 카테고리 분류가 적용됩니다) -->
+        <div id="choice-groups-container" class="flex flex-col gap-4">
+          <!-- JS가 교과군별로 그룹화하여 렌더링합니다 -->
         </div>
 
       </div>
 
-      <!-- 우측 5/4열: 실시간 검증 & 맞춤 조언 -->
-      <div class="lg:col-span-5 xl:col-span-4 flex flex-col gap-5">
+      <!-- 우측 5/4열: 실시간 검증 리포트 & 과목 상세 정보 -->
+      <div class="lg:col-span-5 xl:col-span-4 flex flex-col gap-4">
 
         <!-- 규칙 및 위계 검증 리포트 -->
-        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col gap-3">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
-            <h2 class="font-bold text-slate-900 text-xs md:text-sm flex items-center gap-2">
+        <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs flex flex-col gap-2.5">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <h2 class="font-bold text-slate-900 text-xs flex items-center gap-1.5">
               <i class="fa-solid fa-shield-halved text-indigo-600"></i> 필수 검증 리포트
             </h2>
-            <span id="err-badge" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+            <span id="err-badge" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
               정상
             </span>
           </div>
 
-          <div id="validation-messages" class="flex flex-col gap-2 min-h-[90px] max-h-64 overflow-y-auto scrollbar-thin text-xs">
+          <div id="validation-messages" class="flex flex-col gap-2 min-h-[80px] max-h-60 overflow-y-auto scrollbar-thin text-xs">
             <!-- 오류 및 경고 메시지 동적 삽입 -->
           </div>
         </div>
 
-        <!-- 지망 전공 맞춤 안내서 가이드 -->
-        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-5 border border-indigo-100 shadow-sm flex flex-col gap-3">
+        <!-- 목표 전공 권장과목 연계 요약 카드 (상세 탭 바로가기 링크 포함) -->
+        <div class="bg-gradient-to-br from-indigo-50/70 to-purple-50/70 rounded-2xl p-4 border border-indigo-100/90 shadow-xs flex flex-col gap-2.5">
           <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-1.5">
               <span class="text-sm">🎯</span>
-              <h2 class="font-bold text-indigo-950 text-xs md:text-sm">진로 안내서 권장 과목</h2>
+              <h2 class="font-bold text-indigo-950 text-xs" id="quick-target-label">목표: 서울대 기계공학</h2>
             </div>
-            <span class="text-[10px] text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded font-bold">2028 대입 기준</span>
+            <button id="btn-go-target-tab" class="text-[11px] text-indigo-600 hover:text-indigo-800 font-bold flex items-center gap-1">
+              <span>목표 변경/상세</span> <i class="fa-solid fa-chevron-right text-[9px]"></i>
+            </button>
           </div>
 
-          <div id="target-recommendations" class="text-xs text-slate-700 leading-relaxed bg-white rounded-xl p-3.5 border border-indigo-100">
-            <!-- 추천 과목 목록 -->
+          <div id="quick-target-summary" class="text-xs text-slate-600 bg-white rounded-xl p-3 border border-indigo-100/80 leading-relaxed">
+            <!-- 간단 권장 과목 요약 -->
           </div>
         </div>
 
         <!-- 과목 상세 미리보기 카드 -->
-        <div id="subject-preview-box" class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col gap-2.5">
+        <div id="subject-preview-box" class="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs flex flex-col gap-2">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <h3 class="font-bold text-slate-900 text-xs flex items-center gap-1.5">
-              <i class="fa-solid fa-book-open text-slate-400"></i> 과목 상세 (안내서 원문)
+              <i class="fa-solid fa-circle-info text-blue-500"></i> 과목 상세 정보
             </h3>
-            <span id="preview-page" class="text-[11px] text-slate-400 font-mono"></span>
+            <span id="preview-page" class="text-[10px] text-slate-400 font-mono"></span>
           </div>
-          <div id="preview-content" class="text-xs text-slate-500 leading-relaxed min-h-[80px]">
-            과목명의 <i class="fa-solid fa-circle-question text-slate-400"></i> 버튼을 누르면 핵심 개념과 평가 방식(5등급/성취평가)이 표시됩니다.
+          <div id="preview-content" class="text-xs text-slate-500 leading-relaxed min-h-[90px]">
+            과목명의 <i class="fa-solid fa-circle-question text-slate-400"></i> 버튼을 누르면 핵심 개념, 주요 학습 활동, 5등급 상대평가 산출 여부가 표시됩니다.
           </div>
         </div>
 
@@ -168,8 +197,118 @@
 
   </main>
 
+  <!-- ========================================================================= -->
+  <!-- TAB 2: 목표 대학 & 2028 권장과목 탐색 화면 -->
+  <!-- ========================================================================= -->
+  <main id="view-target" class="max-w-6xl mx-auto w-full px-4 py-6 flex-1 flex-col gap-5 hidden">
+    
+    <!-- 목표 설정 카드 -->
+    <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs flex flex-col gap-4">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <div>
+          <h2 class="font-bold text-slate-900 text-sm md:text-base flex items-center gap-2">
+            <i class="fa-solid fa-graduation-cap text-indigo-600"></i> 목표 대학 및 희망 전공(모집단위) 설정
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">안내서 부록의 『2028학년도 대표 모집단위별 반영(권장)과목 표』를 실시간 대조합니다.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div>
+          <label class="block text-[11px] font-bold text-slate-500 mb-1">희망 모집단위 (안내서 16개 대표 모집단위)</label>
+          <select id="select-target-unit" class="w-full border border-slate-300 rounded-xl p-2.5 text-xs font-bold bg-white focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+            <option value="기계공학">기계공학</option>
+            <option value="컴퓨터공학">컴퓨터공학</option>
+            <option value="의예">의예</option>
+            <option value="약학">약학</option>
+            <option value="생명과학">생명과학</option>
+            <option value="물리">물리</option>
+            <option value="화학">화학</option>
+            <option value="경영">경영</option>
+            <option value="심리">심리</option>
+            <option value="국어교육">국어교육</option>
+            <option value="수학교육">수학교육</option>
+            <option value="영어영문">영어영문</option>
+            <option value="철학">철학</option>
+            <option value="시각디자인">시각디자인</option>
+            <option value="음악">음악</option>
+            <option value="체육">체육</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold text-slate-500 mb-1">목표 대학교 필터</label>
+          <input id="input-target-uni" type="text" value="서울대" placeholder="대학명 검색 (예: 서울대, 연세대, 고려대)"
+                 class="w-full border border-slate-300 rounded-xl p-2.5 text-xs font-bold bg-white focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+        </div>
+
+        <div class="flex items-end">
+          <button id="btn-save-target" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2.5 rounded-xl transition shadow-xs">
+            목표 적용 및 권장과목 갱신
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 대학별 권장과목 상세 표 및 안내서 학과 연계 -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+      
+      <!-- 좌측 7열: 대학별 반영/권장과목 목록 -->
+      <div class="lg:col-span-7 bg-white rounded-2xl p-5 border border-slate-200 shadow-xs flex flex-col gap-3">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+          <h3 class="font-bold text-slate-900 text-xs md:text-sm flex items-center gap-1.5">
+            <i class="fa-solid fa-table-list text-indigo-600"></i> 대학별 2028 권장과목 표
+          </h3>
+          <span class="text-[11px] text-slate-400">대교협 2028 대입 전형 자료</span>
+        </div>
+
+        <div id="target-uni-table-container" class="max-h-96 overflow-y-auto scrollbar-thin text-xs">
+          <!-- 대학별 권장사항 테이블이 들어갑니다 -->
+        </div>
+      </div>
+
+      <!-- 우측 5열: 학과 안내서 공식 추천 과목 목록 -->
+      <div class="lg:col-span-5 bg-white rounded-2xl p-5 border border-slate-200 shadow-xs flex flex-col gap-3">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+          <h3 class="font-bold text-slate-900 text-xs md:text-sm flex items-center gap-1.5">
+            <i class="fa-solid fa-compass text-purple-600"></i> 학과 안내서 공식 선택 과목 예시
+          </h3>
+          <span class="text-[11px] text-slate-400">안내서 Ⅲ단원</span>
+        </div>
+
+        <div id="target-major-handbook-box" class="text-xs text-slate-700 leading-relaxed flex flex-col gap-3">
+          <!-- 일반선택, 진로선택, 융합선택 목록 -->
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- TAB 3: 보통교과 109과목 과목 사전 화면 -->
+  <!-- ========================================================================= -->
+  <main id="view-handbook" class="max-w-6xl mx-auto w-full px-4 py-6 flex-1 flex-col gap-5 hidden">
+    <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs flex flex-col gap-4">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
+        <div>
+          <h2 class="font-bold text-slate-900 text-sm md:text-base flex items-center gap-2">
+            <i class="fa-solid fa-book-bookmark text-indigo-600"></i> 2022 개정 보통교과 109과목 사전
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">과목별 학점, 5등급 상대평가 여부, 2028 수능 출제 여부, 핵심 개념을 검색하세요.</p>
+        </div>
+        <input id="search-subject-input" type="text" placeholder="과목명 또는 키워드 검색..."
+               class="border border-slate-300 rounded-xl px-3 py-1.5 text-xs w-60 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+      </div>
+
+      <div id="handbook-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-[600px] overflow-y-auto scrollbar-thin pr-1">
+        <!-- 109개 과목 카드 목록 -->
+      </div>
+    </div>
+  </main>
+
   <footer class="bg-white border-t border-slate-200 py-3 text-center text-[11px] text-slate-400">
-    『2026학년도 2022 개정 교육과정 선택 과목 안내서』 기반 &middot; 학생 학년별 맞춤 선택 모드
+    『2026학년도 2022 개정 교육과정 선택 과목 안내서』 &middot; 서울특별시교육청교육연구정보원 자료 기반
   </footer>
 
   <script type="module" src="app.js"></script>
