@@ -1,0 +1,1493 @@
+{
+ "_note": "금옥여고 2026학년도 입학생 학점 배당표를 사람이 읽어 작성. 자동 파서 아님. 원본 PDF와 렌더 이미지를 대조해 확정했다.",
+ "school": "금옥여자고등학교",
+ "cohort": 2026,
+ "source": "금옥여자고등학교_2026학년도 입학생 교육과정 학점 배당표(2022 개정 교육과정).pdf",
+ "verified_by": "manual",
+ "verified_at": "2026-09-04",
+ "totals": {
+  "graduation_credits": 192,
+  "subject_credits": 174,
+  "creative_activity_credits": 18,
+  "credits_per_semester": 32,
+  "credits_per_year": 64,
+  "subjects_per_semester": {
+   "1-1": 9,
+   "1-2": 9,
+   "2-1": 10,
+   "2-2": 10,
+   "3-1": 10,
+   "3-2": 10
+  },
+  "school_designated_credits": 174,
+  "elective_credits": {
+   "grade2": 36,
+   "grade3": 40
+  }
+ },
+ "required_by_group": {
+  "국어": {
+   "offered": 20,
+   "required": 8
+  },
+  "수학": {
+   "offered": 16,
+   "required": 8
+  },
+  "영어": {
+   "offered": 20,
+   "required": 8
+  },
+  "한국사": {
+   "offered": 6,
+   "required": 6
+  },
+  "사회": {
+   "offered": 8,
+   "required": 8
+  },
+  "과학": {
+   "offered": 10,
+   "required": 10
+  },
+  "체육": {
+   "offered": 12,
+   "required": 10
+  },
+  "예술": {
+   "offered": 6,
+   "required": 10
+  }
+ },
+ "rules": [
+  {
+   "id": "국수영-총량",
+   "type": "max_credits",
+   "groups": [
+    "국어",
+    "수학",
+    "영어"
+   ],
+   "limit": 81,
+   "text": "국어, 수학, 영어 교과의 이수 학점 총합은 81학점을 초과할 수 없음."
+  },
+  {
+   "id": "국수영-선택-총량",
+   "type": "max_credits",
+   "groups": [
+    "국어",
+    "수학",
+    "영어"
+   ],
+   "scope": "2·3학년 선택",
+   "limit": 25,
+   "text": "2, 3학년 국어, 수학, 영어 교과(군) 선택과목에서 25학점 이하로 선택"
+  },
+  {
+   "id": "기가정보-제2외-교양-필수",
+   "type": "min_credits",
+   "groups": [
+    "기술·가정/정보",
+    "제2외국어/한문",
+    "교양"
+   ],
+   "limit": 16,
+   "text": "기술·가정/정보, 제2외국어/한문, 교양 교과(군)의 필수이수학점은 16학점임."
+  },
+  {
+   "id": "3-2-역사-변동",
+   "type": "advisory",
+   "text": "3학년 2학기 역사 교과(군) 선택과목은 승인 여부에 따라 변동될 수 있음."
+  },
+  {
+   "id": "연도-변동",
+   "type": "advisory",
+   "text": "당해년도 교육과정위원회 심의 결과에 따라 차년도 운영 과목 및 학점이 달라질 수 있음."
+  }
+ ],
+ "choice_groups": [
+  {
+   "id": "g2-1-a",
+   "semester": "2-1",
+   "credits": 12,
+   "pick": 4,
+   "members": [
+    "주제 탐구 독서",
+    "기하",
+    "미디어 영어",
+    "한국지리 탐구",
+    "역사로 탐구하는 현대 세계",
+    "사회와 문화",
+    "현대사회와 윤리",
+    "물리학",
+    "화학",
+    "생명과학",
+    "지구과학"
+   ]
+  },
+  {
+   "id": "g2-1-b",
+   "semester": "2-1",
+   "credits": 3,
+   "pick": 1,
+   "members": [
+    "기술·가정",
+    "정보"
+   ]
+  },
+  {
+   "id": "g2-1-c",
+   "semester": "2-1",
+   "credits": 3,
+   "pick": 1,
+   "members": [
+    "일본어",
+    "중국어"
+   ]
+  },
+  {
+   "id": "g2-2-a",
+   "semester": "2-2",
+   "credits": 12,
+   "pick": 4,
+   "members": [
+    "문학과 영상",
+    "수학과제 탐구",
+    "영어 발표와 토론",
+    "세계시민과 지리",
+    "기후변화와 지속가능한 세계",
+    "동아시아 역사 기행",
+    "경제",
+    "정치",
+    "윤리와 사상",
+    "역학과 에너지",
+    "화학 반응의 세계",
+    "세포와 물질대사",
+    "지구시스템과학",
+    "융합과학 탐구"
+   ]
+  },
+  {
+   "id": "g2-2-b",
+   "semester": "2-2",
+   "credits": 3,
+   "pick": 1,
+   "members": [
+    "생활과학 탐구",
+    "인공지능 기초"
+   ]
+  },
+  {
+   "id": "g2-2-c",
+   "semester": "2-2",
+   "credits": 3,
+   "pick": 1,
+   "members": [
+    "일본어 회화",
+    "중국어 회화"
+   ]
+  },
+  {
+   "id": "g3-1-a",
+   "semester": "3-1",
+   "credits": 15,
+   "pick": 5,
+   "members": [
+    "언어생활 탐구",
+    "확률과 통계",
+    "미적분Ⅱ",
+    "심화 영어",
+    "도시의 미래 탐구",
+    "세계사",
+    "법과 사회",
+    "사회문제 탐구",
+    "인문학과 윤리",
+    "전자기와 양자",
+    "물질과 에너지",
+    "생물의 유전",
+    "행성우주과학",
+    "미술과 매체"
+   ],
+   "_note": "미술과 매체만 2학점이라 이것을 고르면 15학점을 채우지 못한다. 원본 표기 그대로 둔다."
+  },
+  {
+   "id": "g3-1-b",
+   "semester": "3-1",
+   "credits": 3,
+   "pick": 1,
+   "members": [
+    "아동발달과 부모",
+    "데이터 과학",
+    "심화 일본어",
+    "심화 중국어"
+   ]
+  },
+  {
+   "id": "g3-1-c",
+   "semester": "3-1",
+   "credits": 2,
+   "pick": 1,
+   "members": [
+    "음악 연주와 창작",
+    "미술 창작"
+   ]
+  },
+  {
+   "id": "g3-2-a",
+   "semester": "3-2",
+   "credits": 15,
+   "pick": 5,
+   "members": [
+    "매체 의사소통",
+    "수학과 문화",
+    "실용 통계",
+    "심화 영어 독해와 작문",
+    "여행지리",
+    "국가 유산의 이해와 활용",
+    "금융과 경제생활",
+    "윤리문제 탐구",
+    "과학의 역사와 문화",
+    "기후변화와 환경생태",
+    "미술 창작Ⅰ"
+   ]
+  },
+  {
+   "id": "g3-2-b",
+   "semester": "3-2",
+   "credits": 3,
+   "pick": 1,
+   "members": [
+    "창의 공학 설계",
+    "소프트웨어와 생활",
+    "일본 문화",
+    "중국 문화"
+   ]
+  },
+  {
+   "id": "g3-2-c",
+   "semester": "3-2",
+   "credits": 2,
+   "pick": 1,
+   "members": [
+    "음악 감상과 비평",
+    "미술 감상과 비평"
+   ]
+  }
+ ],
+ "offerings": [
+  {
+   "name": "공통국어1",
+   "group": "국어",
+   "type": "공통",
+   "base": 4,
+   "credits": 4,
+   "semesters": [
+    "1-1"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "공통국어2",
+   "group": "국어",
+   "type": "공통",
+   "base": 4,
+   "credits": 4,
+   "semesters": [
+    "1-2"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "문학",
+   "group": "국어",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "화법과 언어",
+   "group": "국어",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "독서와 작문",
+   "group": "국어",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "독서 토론과 글쓰기",
+   "group": "국어",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "공통수학1",
+   "group": "수학",
+   "type": "공통",
+   "base": 4,
+   "credits": 4,
+   "semesters": [
+    "1-1"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "공통수학2",
+   "group": "수학",
+   "type": "공통",
+   "base": 4,
+   "credits": 4,
+   "semesters": [
+    "1-2"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "대수",
+   "group": "수학",
+   "type": "일반",
+   "base": 4,
+   "credits": 4,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "미적분Ⅰ",
+   "group": "수학",
+   "type": "일반",
+   "base": 4,
+   "credits": 4,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "공통영어1",
+   "group": "영어",
+   "type": "공통",
+   "base": 4,
+   "credits": 4,
+   "semesters": [
+    "1-1"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "공통영어2",
+   "group": "영어",
+   "type": "공통",
+   "base": 4,
+   "credits": 4,
+   "semesters": [
+    "1-2"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "영어Ⅰ",
+   "group": "영어",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "영어 독해와 작문",
+   "group": "영어",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "영어Ⅱ",
+   "group": "영어",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "세계 문화와 영어",
+   "group": "영어",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "한국사1",
+   "group": "사회(역사/도덕 포함)",
+   "type": "공통",
+   "base": 3,
+   "credits": 3,
+   "semesters": [
+    "1-1"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "한국사2",
+   "group": "사회(역사/도덕 포함)",
+   "type": "공통",
+   "base": 3,
+   "credits": 3,
+   "semesters": [
+    "1-2"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "통합사회1",
+   "group": "사회(역사/도덕 포함)",
+   "type": "공통",
+   "base": 4,
+   "credits": 4,
+   "semesters": [
+    "1-1"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "통합사회2",
+   "group": "사회(역사/도덕 포함)",
+   "type": "공통",
+   "base": 4,
+   "credits": 4,
+   "semesters": [
+    "1-2"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "통합과학1",
+   "group": "과학",
+   "type": "공통",
+   "base": 4,
+   "credits": 4,
+   "semesters": [
+    "1-1"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "통합과학2",
+   "group": "과학",
+   "type": "공통",
+   "base": 4,
+   "credits": 4,
+   "semesters": [
+    "1-2"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "과학탐구실험1",
+   "group": "과학",
+   "type": "공통",
+   "base": 1,
+   "credits": 1,
+   "semesters": [
+    "1-1"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "과학탐구실험2",
+   "group": "과학",
+   "type": "공통",
+   "base": 1,
+   "credits": 1,
+   "semesters": [
+    "1-2"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "체육1",
+   "group": "체육",
+   "type": "일반",
+   "base": 3,
+   "credits": 2,
+   "semesters": [
+    "1-1"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "체육2",
+   "group": "체육",
+   "type": "일반",
+   "base": 3,
+   "credits": 2,
+   "semesters": [
+    "1-2"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "운동과 건강",
+   "group": "체육",
+   "type": "진로",
+   "base": 3,
+   "credits": 2,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "스포츠 과학",
+   "group": "체육",
+   "type": "진로",
+   "base": 2,
+   "credits": 2,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "스포츠 생활1",
+   "group": "체육",
+   "type": "융합",
+   "base": 3,
+   "credits": 2,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "스포츠 생활2",
+   "group": "체육",
+   "type": "융합",
+   "base": 3,
+   "credits": 2,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "학교지정"
+  },
+  {
+   "name": "음악",
+   "group": "예술",
+   "type": "일반",
+   "base": 3,
+   "credits": 3,
+   "semesters": [
+    "1-1",
+    "1-2"
+   ],
+   "track": "학교지정",
+   "_note": "음악·미술은 분반 교차 운영. 학생은 한 학기에 하나만 듣고 1학년 동안 둘 다 이수한다. 학기당 예술 3학점, 연간 6학점.",
+   "rotation": "1학년-예술"
+  },
+  {
+   "name": "미술",
+   "group": "예술",
+   "type": "일반",
+   "base": 3,
+   "credits": 3,
+   "semesters": [
+    "1-1",
+    "1-2"
+   ],
+   "track": "학교지정",
+   "_note": "음악·미술은 분반 교차 운영. 학생은 한 학기에 하나만 듣고 1학년 동안 둘 다 이수한다. 학기당 예술 3학점, 연간 6학점.",
+   "rotation": "1학년-예술"
+  },
+  {
+   "name": "주제 탐구 독서",
+   "group": "국어",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-1-a"
+  },
+  {
+   "name": "기하",
+   "group": "수학",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-1-a"
+  },
+  {
+   "name": "미디어 영어",
+   "group": "영어",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-1-a"
+  },
+  {
+   "name": "한국지리 탐구",
+   "group": "사회(역사/도덕 포함)",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-1-a"
+  },
+  {
+   "name": "역사로 탐구하는 현대 세계",
+   "group": "사회(역사/도덕 포함)",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-1-a"
+  },
+  {
+   "name": "사회와 문화",
+   "group": "사회(역사/도덕 포함)",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-1-a"
+  },
+  {
+   "name": "현대사회와 윤리",
+   "group": "사회(역사/도덕 포함)",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-1-a"
+  },
+  {
+   "name": "물리학",
+   "group": "과학",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-1-a"
+  },
+  {
+   "name": "화학",
+   "group": "과학",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-1-a"
+  },
+  {
+   "name": "생명과학",
+   "group": "과학",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-1-a"
+  },
+  {
+   "name": "지구과학",
+   "group": "과학",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-1-a"
+  },
+  {
+   "name": "기술·가정",
+   "group": "기술·가정/정보",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-1-b"
+  },
+  {
+   "name": "정보",
+   "group": "기술·가정/정보",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-1-b"
+  },
+  {
+   "name": "일본어",
+   "group": "제2외국어/한문",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-1-c"
+  },
+  {
+   "name": "중국어",
+   "group": "제2외국어/한문",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-1"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-1-c"
+  },
+  {
+   "name": "문학과 영상",
+   "group": "국어",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-a"
+  },
+  {
+   "name": "수학과제 탐구",
+   "group": "수학",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-a"
+  },
+  {
+   "name": "영어 발표와 토론",
+   "group": "영어",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-a"
+  },
+  {
+   "name": "세계시민과 지리",
+   "group": "사회(역사/도덕 포함)",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-a"
+  },
+  {
+   "name": "기후변화와 지속가능한 세계",
+   "group": "사회(역사/도덕 포함)",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-a"
+  },
+  {
+   "name": "동아시아 역사 기행",
+   "group": "사회(역사/도덕 포함)",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-a"
+  },
+  {
+   "name": "경제",
+   "group": "사회(역사/도덕 포함)",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-a"
+  },
+  {
+   "name": "정치",
+   "group": "사회(역사/도덕 포함)",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-a"
+  },
+  {
+   "name": "윤리와 사상",
+   "group": "사회(역사/도덕 포함)",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-a"
+  },
+  {
+   "name": "역학과 에너지",
+   "group": "과학",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-a"
+  },
+  {
+   "name": "화학 반응의 세계",
+   "group": "과학",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-a"
+  },
+  {
+   "name": "세포와 물질대사",
+   "group": "과학",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-a"
+  },
+  {
+   "name": "지구시스템과학",
+   "group": "과학",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-a"
+  },
+  {
+   "name": "융합과학 탐구",
+   "group": "과학",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-a"
+  },
+  {
+   "name": "생활과학 탐구",
+   "group": "기술·가정/정보",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-b"
+  },
+  {
+   "name": "인공지능 기초",
+   "group": "기술·가정/정보",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-b"
+  },
+  {
+   "name": "일본어 회화",
+   "group": "제2외국어/한문",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-c"
+  },
+  {
+   "name": "중국어 회화",
+   "group": "제2외국어/한문",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "2-2"
+   ],
+   "track": "2학년선택",
+   "choice_group": "g2-2-c"
+  },
+  {
+   "name": "언어생활 탐구",
+   "group": "국어",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-a"
+  },
+  {
+   "name": "확률과 통계",
+   "group": "수학",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-a"
+  },
+  {
+   "name": "미적분Ⅱ",
+   "group": "수학",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-a"
+  },
+  {
+   "name": "심화 영어",
+   "group": "영어",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-a"
+  },
+  {
+   "name": "도시의 미래 탐구",
+   "group": "사회(역사/도덕 포함)",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-a"
+  },
+  {
+   "name": "세계사",
+   "group": "사회(역사/도덕 포함)",
+   "type": "일반",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-a"
+  },
+  {
+   "name": "법과 사회",
+   "group": "사회(역사/도덕 포함)",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-a"
+  },
+  {
+   "name": "사회문제 탐구",
+   "group": "사회(역사/도덕 포함)",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-a"
+  },
+  {
+   "name": "인문학과 윤리",
+   "group": "사회(역사/도덕 포함)",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-a"
+  },
+  {
+   "name": "전자기와 양자",
+   "group": "과학",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-a"
+  },
+  {
+   "name": "물질과 에너지",
+   "group": "과학",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-a"
+  },
+  {
+   "name": "생물의 유전",
+   "group": "과학",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-a"
+  },
+  {
+   "name": "행성우주과학",
+   "group": "과학",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-a"
+  },
+  {
+   "name": "미술과 매체",
+   "group": "예술",
+   "type": "융합",
+   "base": 3,
+   "credits": 2,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-a"
+  },
+  {
+   "name": "아동발달과 부모",
+   "group": "기술·가정/정보",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-b"
+  },
+  {
+   "name": "데이터 과학",
+   "group": "기술·가정/정보",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-b"
+  },
+  {
+   "name": "심화 일본어",
+   "group": "제2외국어/한문",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-b"
+  },
+  {
+   "name": "심화 중국어",
+   "group": "제2외국어/한문",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-b"
+  },
+  {
+   "name": "음악 연주와 창작",
+   "group": "예술",
+   "type": "진로",
+   "base": 3,
+   "credits": 2,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-c"
+  },
+  {
+   "name": "미술 창작",
+   "group": "예술",
+   "type": "진로",
+   "base": 3,
+   "credits": 2,
+   "semesters": [
+    "3-1"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-1-c"
+  },
+  {
+   "name": "매체 의사소통",
+   "group": "국어",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-a"
+  },
+  {
+   "name": "수학과 문화",
+   "group": "수학",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-a"
+  },
+  {
+   "name": "실용 통계",
+   "group": "수학",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-a"
+  },
+  {
+   "name": "심화 영어 독해와 작문",
+   "group": "영어",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-a"
+  },
+  {
+   "name": "여행지리",
+   "group": "사회(역사/도덕 포함)",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-a"
+  },
+  {
+   "name": "국가 유산의 이해와 활용",
+   "group": "사회(역사/도덕 포함)",
+   "type": "진로",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-a",
+   "approval": "교육감 승인 과목"
+  },
+  {
+   "name": "금융과 경제생활",
+   "group": "사회(역사/도덕 포함)",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-a"
+  },
+  {
+   "name": "윤리문제 탐구",
+   "group": "사회(역사/도덕 포함)",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-a"
+  },
+  {
+   "name": "과학의 역사와 문화",
+   "group": "과학",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-a"
+  },
+  {
+   "name": "기후변화와 환경생태",
+   "group": "과학",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-a"
+  },
+  {
+   "name": "미술 창작Ⅰ",
+   "group": "예술",
+   "type": "진로",
+   "base": 3,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-a",
+   "approval": "타 시·도 교육감 승인 과목"
+  },
+  {
+   "name": "창의 공학 설계",
+   "group": "기술·가정/정보",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-b"
+  },
+  {
+   "name": "소프트웨어와 생활",
+   "group": "기술·가정/정보",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-b"
+  },
+  {
+   "name": "일본 문화",
+   "group": "제2외국어/한문",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-b"
+  },
+  {
+   "name": "중국 문화",
+   "group": "제2외국어/한문",
+   "type": "융합",
+   "base": 4,
+   "credits": 3,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-b"
+  },
+  {
+   "name": "음악 감상과 비평",
+   "group": "예술",
+   "type": "진로",
+   "base": 3,
+   "credits": 2,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-c"
+  },
+  {
+   "name": "미술 감상과 비평",
+   "group": "예술",
+   "type": "진로",
+   "base": 3,
+   "credits": 2,
+   "semesters": [
+    "3-2"
+   ],
+   "track": "3학년선택",
+   "choice_group": "g3-2-c"
+  }
+ ],
+ "rotations": [
+  {
+   "id": "1학년-예술",
+   "grade": 1,
+   "members": [
+    "음악",
+    "미술"
+   ],
+   "credits_per_semester": 3,
+   "credits_total": 6,
+   "rule": "두 과목을 1학년 두 학기에 나눠 이수. 학기별 순서는 반에 따라 다름.",
+   "source": "배당표의 [3] 표기"
+  }
+ ]
+}
