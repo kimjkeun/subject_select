@@ -67,41 +67,84 @@ def build_majors():
     return majors, index
 
 
-def build_map(majors, subjects):
-    """학과 -> 과목, 과목 -> 학과. 안내서 표기가 과목 DB에 없으면 unmatched로 남긴다."""
+def load_aliases():
+    """표기 흔들림 사전. canonical=정규 과목명으로 치환, special=전문교과라 정상 미매칭."""
+    f = ROOT / "pipeline" / "aliases.json"
+    if not f.exists():
+        return {}, set()
+    d = json.loads(f.read_text(encoding="utf-8"))
+    canon = {k: v for k, v in d.get("canonical", {}).items()
+             if not k.startswith("_")}
+    special = {k for k in d.get("special_not_alias", {})
+               if not k.startswith("_")}
+    return canon, special
+
+
+def build_special():
+    """계열별 선택 과목 등록부. 보통 교과가 아니라 별도 축으로 둔다."""
+    out = {}
+    for d in load("special"):
+        for s in d.get("subjects", []):
+            out[s["name"]] = {
+                "name": s["name"], "track": d.get("track"),
+                "group": s.get("group"), "type": s.get("type"),
+                "description": s.get("description"),
+                "page": d.get("_source_page"),
+            }
+    return dict(sorted(out.items()))
+
+
+def build_map(majors, subjects, special_db):
+    """학과 -> 과목, 과목 -> 학과. 별칭을 정규화하고 전문교과는 따로 센다."""
+    canon, special_known = load_aliases()
     m2s, s2m, unmatched = {}, defaultdict(list), defaultdict(set)
+    aliased, spec = defaultdict(set), defaultdict(set)
     for mid, m in majors.items():
         rs = m.get("related_subjects") or {}
-        flat = {k: rs.get(k, []) for k in ("general", "career", "fusion")}
-        m2s[mid] = flat
-        for kind, names in flat.items():
-            for n in names:
-                if n in subjects:
-                    s2m[n].append(mid)
+        flat = {}
+        for k in ("general", "career", "fusion"):
+            names = []
+            for n in rs.get(k, []):
+                t = canon.get(n, n)
+                if t != n:
+                    aliased[n].add(mid)
+                if t in subjects:
+                    s2m[t].append(mid)
+                elif t in special_known or t in special_db:
+                    spec[t].add(mid)
                 else:
-                    unmatched[n].add(mid)
-    return m2s, {k: sorted(set(v)) for k, v in s2m.items()}, \
-        {k: sorted(v) for k, v in sorted(unmatched.items())}
+                    unmatched[t].add(mid)
+                names.append(t)
+            flat[k] = names
+        m2s[mid] = flat
+    srt = lambda d: {k: sorted(v) for k, v in sorted(d.items())}
+    return (m2s, {k: sorted(set(v)) for k, v in s2m.items()},
+            srt(unmatched), srt(aliased), srt(spec))
 
 
 def main():
     WEB.mkdir(parents=True, exist_ok=True)
     subjects, s_index = build_subjects()
     majors, m_index = build_majors()
-    m2s, s2m, unmatched = build_map(majors, subjects)
+    special = build_special()
+    m2s, s2m, unmatched, aliased, spec = build_map(majors, subjects, special)
 
     files = {
         "subjects.json": subjects, "subject_index.json": s_index,
         "majors.json": majors, "major_index.json": m_index,
+        "special_subjects.json": special,
         "major_subject_map.json": {"major_to_subjects": m2s,
                                    "subject_to_majors": s2m,
+                                   "special_subject_refs": spec,
+                                   "applied_aliases": aliased,
                                    "unmatched_subject_names": unmatched},
     }
     for name, obj in files.items():
         (WEB / name).write_text(
             json.dumps(obj, ensure_ascii=False, indent=1), encoding="utf-8")
 
-    print(f"과목 {len(subjects)}개 / 학과 {len(majors)}개")
+    print(f"과목 {len(subjects)}개 / 학과 {len(majors)}개 / "
+          f"계열별 선택 과목 {len(special)}개")
     for name in files:
         p = WEB / name
         print(f"  {name:26s} {p.stat().st_size/1024:7.1f} KB")
@@ -111,11 +154,15 @@ def main():
         avg = sum(est_tokens(v) for v in subjects.values()) // len(subjects)
         print(f"과목 상세 1건 평균 {avg:,} 토큰 (툴 호출로 5~8건 주입 시 "
               f"{avg*6:,} 토큰)")
-    if unmatched:
-        print(f"\n과목 DB에 없는 표기 {len(unmatched)}종 "
-              f"(교과군 뭉뚱그림/미개설 과목 - 별칭 사전 필요):")
-        for n, ms in list(unmatched.items())[:10]:
-            print(f"  - {n}  ({len(ms)}개 학과)")
+    print()
+    print(f"별칭 치환 {len(aliased)}종 / 전문교과 참조 {len(spec)}종 / "
+          f"미해결 {len(unmatched)}종")
+    for n, ms in aliased.items():
+        print(f"  별칭   {n} ({len(ms)}개 학과)")
+    for n, ms in spec.items():
+        print(f"  전문   {n} ({len(ms)}개 학과)")
+    for n, ms in unmatched.items():
+        print(f"  미해결 {n} ({len(ms)}개 학과)")
 
 
 if __name__ == "__main__":
