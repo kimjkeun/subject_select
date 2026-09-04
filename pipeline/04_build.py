@@ -122,17 +122,40 @@ def build_map(majors, subjects, special_db):
             srt(unmatched), srt(aliased), srt(spec))
 
 
+def build_appendix():
+    """부록 2028 대표 모집단위별 반영(권장)과목 표를 합친다."""
+    records = []
+    for d in load("appendix"):
+        track = d.get("track")
+        page = d.get("_source_page")
+        for r in d.get("rows", []):
+            unit = r.get("unit")
+            uni = r.get("university")
+            if not unit:
+                continue
+            records.append({
+                "track": track,
+                "unit": unit,
+                "university": uni,
+                "subjects": r.get("subjects", {}),
+                "page": page,
+            })
+    return records
+
+
 def main():
     WEB.mkdir(parents=True, exist_ok=True)
     subjects, s_index = build_subjects()
     majors, m_index = build_majors()
     special = build_special()
+    appendix = build_appendix()
     m2s, s2m, unmatched, aliased, spec = build_map(majors, subjects, special)
 
     files = {
         "subjects.json": subjects, "subject_index.json": s_index,
         "majors.json": majors, "major_index.json": m_index,
         "special_subjects.json": special,
+        "appendix_requirements.json": appendix,
         "major_subject_map.json": {"major_to_subjects": m2s,
                                    "subject_to_majors": s2m,
                                    "special_subject_refs": spec,
